@@ -21,6 +21,7 @@ pipeline {
          steps {
             parallel(
                SonarQube: {
+                  sh "export JAVA_HOME='/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'"
                   sh "mvn sonar:sonar"
                   echo "Getting the analysis results .. "
                },
