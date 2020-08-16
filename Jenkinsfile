@@ -53,7 +53,7 @@ pipeline {
               DOCKER_RELEASE_TAG = "MYAPP-${SHORT_HASH}"
             }
             echo "DOCKER_RELEASE_TAG:  $DOCKER_RELEASE_TAG"
-            sh "cd $WORKSPACE/webgoat-flaskapp && /usr/local/bin/docker build -t kmasani/webgoat:${DOCKER_RELEASE_TAG} ."
+            sh "cd $WORKSPACE/webgoat-server && /usr/local/bin/docker build -t kmasani/webgoat:${DOCKER_RELEASE_TAG} ."
          }
       }
 
