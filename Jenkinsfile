@@ -22,7 +22,7 @@ pipeline {
             parallel(
                SonarQube: {
                   sh "export JAVA_HOME='/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'"
-                  sh "mvn sonar:sonar"
+                  sh "mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=f687be563fc62eb42364d3a2b32885f8fc4baf76"
                   echo "Getting the analysis results .. "
                },
                NexusLifeCycle: {
