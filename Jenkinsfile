@@ -21,8 +21,7 @@ pipeline {
          steps {
             parallel(
                SonarQube: {
-                  sh "export JAVA_HOME='/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'"
-                  sh "mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=f687be563fc62eb42364d3a2b32885f8fc4baf76"
+                  sh "mvn sonar:sonar -Dsonar.host.url=http://sonar.masani.xyz:9000 -Dsonar.login=6a369fd08942a7491e92bf374c8a4f1dce0ad25b"
                   echo "Getting the analysis results .. "
                },
                NexusLifeCycle: {
@@ -35,7 +34,7 @@ pipeline {
       stage('Scans: Dev') {
          when { not { branch 'master' } }
          steps {
-            sh "mvn sonar:sonar"
+            sh "mvn sonar:sonar -Dsonar.host.url=http://sonar.masani.xyz:9000 -Dsonar.login=6a369fd08942a7491e92bf374c8a4f1dce0ad25b"
             echo "Getting the analysis results .. "
          }
       }
